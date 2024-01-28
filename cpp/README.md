@@ -19,61 +19,54 @@ The `GildedRose.cc` file, i.e. the code under test, is identical in all four var
 
 ## How to build and run tests in a terminal
 
-### Build tests
+## Prepare (if directories don't exists)
 
     $ cd ${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp
-    $ mkdir build
+    $ mkdir -p build coverage
     $ cd build
     $ cmake ..
+
+### Build tests
+
+(Assuming current directory is "build")
+
     $ cmake --build .
 
 ### Show available tests
 
-    $ cd ${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp/build
+(Assuming current directory is "build")
+
     $ ctest -N
-    Test project ${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp/build
-      Test #1: GildedRoseGoogletestUnitTests
 
 ### Run all tests
+
+(Assuming current directory is "build")
 
     $ ctest
 
 ### Run all tests with verbose output
 
+(Assuming current directory is "build")
+
     $ ctest -VV
 
-### Run a specific test with verbose output
 
-    $ ctest -VV --tests-regex Catch2Approval
+## How to derive code coverage
 
-## How to run with test coverage
-1. go to build directory
-2. Run:
-    $ mkdir ../coverage
-3. Run:
+(Assuming current directory is "build")
+
     $ lcov --directory ./ --capture --output-file ../coverage/lcov.info -rc lcov_branch_coverage=1
-4. In VS Code run "Coverage Gutters: Display Coverage"
-5. Coverage will now be visible in VSCode (left border in the editor when viewing source code).
 
-## How to run during a typical TDD cycle
+In VS Code, open the source code (cpp) file and run "Coverage Gutters: Display Coverage" or click "Watch" in the bottom menu bar.
+
+Coverage will now be visible in VSCode (left border in the editor when viewing source code).
+
+## How to run during a typical test cycle
+
+(Assuming current directory is "build")
+
     $ cmake --build .
     $ ctest -VV --tests-regex GildedRoseGoogletestUnitTests
     $ lcov --directory ./ --capture --output-file ../coverage/lcov.info -rc lcov_branch_coverage=1
 
-## How to build and run tests using the [CLion IDE](https://www.jetbrains.com/clion/)
-
-1. Start CLion
-2. Select menu `File - Open...`
-3. Select folder `${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp`
-4. Select menu `Build - Build Project`
-4. Select menu `Run - Run...`
-4. Select what test variant to run, e.g. `GildedRoseCatch2ApprovalTests`.
-
-## How to build and run tests using Visual Studio 2019
-
-1. Start Visual Studio 2019
-2. Select `Open a local folder`
-3. Select folder `${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp`
-4. Wait for message `CMake generation finished.` in the CMake output window at the bottom
-5. Select what test variant to run in the drop down menu for Startup Items, e.g. `GildedRoseCatch2ApprovalTests.exe`.
-6. Select menu `Debug - Start`
+This procedure can be run via the `run-googletest-unit-cov.sh` script from the cpp project root (${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp)
