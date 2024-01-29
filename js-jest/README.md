@@ -7,7 +7,7 @@ This is the Gilded Rose kata in JavaScript with Jest
 Install dependencies
 
 ```sh
-npm install
+npm ci
 ```
 
 ## Running tests
