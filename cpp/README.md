@@ -1,14 +1,11 @@
 # C++ version of Gilded Rose refactoring kata
 
 ## Introduction
-The C++ version of the Gilded Rose refactoring kata is available in four variants using different test frameworks:
+The C++ version of the Gilded Rose refactoring kata was originally available in four variants using different test frameworks, but here the options are trimmed down to only cover:
 
-* Catch2 test framework
-  1. Traditional unit test with the [Catch2](https://github.com/catchorg/Catch2) test framework in the `test/cpp_catch2_unittest` folder.
-  2. [Approval tests](https://github.com/approvals/ApprovalTests.cpp) with the [Catch2](https://github.com/catchorg/Catch2) test framework in the `test/cpp_catch2_approvaltest` folder.
 * Google Test framework
   1. Traditional unit test with the [Googletest](https://github.com/google/googletest) test framework in the `test/cpp_googletest_unittest` folder.
-  2. [Approval tests](https://github.com/approvals/ApprovalTests.cpp) with the [Googletest](https://github.com/google/googletest) test framework in the `test/cpp_googletest_approvaltest` folder.
+  
 
 The `GildedRose.cc` file, i.e. the code under test, is identical in all four variants.
 
@@ -19,7 +16,7 @@ The `GildedRose.cc` file, i.e. the code under test, is identical in all four var
 
 ## How to build and run tests in a terminal
 
-## Prepare (if directories don't exists)
+## Prepare (if directories don't exist)
 
     $ cd ${GIT_FOLDER}/GildedRose-Refactoring-Kata/cpp
     $ mkdir -p build coverage
