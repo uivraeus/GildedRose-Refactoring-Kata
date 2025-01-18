@@ -1,15 +1,36 @@
 # Gilded Rose, C99 Edition
 
+## Main option: Run with `unity` test framework
+
+The applicable test case file is "test_unity_gildedrose.c"
+
+> You can ignore the file named "test_rose.c"
+
+### Run via CLI
+
+```shell
+./run-once-cmake.sh
+```
+
+This will configure, build, run and collect coverage reports for all tests.
+
+
+## Alternative (older): Run with `check` test framework
+
+The applicable test case file is "test_rose.c"
+
+> You can ignore the file named "test_unity_gildedrose.c"
+
 The command "make" will build and run your tests, as well as build the program
 golden_rose, which can serve as the basis for a golden-rule test.
 
 
-## Assumptions
+### Assumptions
   - gnu make and a C compiler (like gcc) is installed on your system and is in the PATH
   - The check unit testing library is installed on your system (https://libcheck.github.io/check/)
   - pkg-config is installed on your system
 
-## Usage
+### Usage
   - Run `make` to build the program and run all tests
   - Files which contain tests should be named `test_*.c`  They will automatically
     be included in your test suite.
@@ -17,7 +38,7 @@ golden_rose, which can serve as the basis for a golden-rule test.
   - New program logic may be included in files named `gilded_*.c` which will
     automatically be included in both your tests and the final program.
 
-## Golden Rule tests
+### Golden Rule tests
   - The program `golden_rose` will generate text output.  If you capture this
     output after your first `make` you can use this as a reference for a golden
     rule test.
@@ -27,7 +48,7 @@ golden_rose, which can serve as the basis for a golden-rule test.
   - To avoid the Goblin threat you can use `git diff GildedRose.h`, which should
     have no output if you have left the precious Item structure unchanged.
 
-## Notes
+### Notes
   - This project is tweaked to run on Linux systems, and will mostly work on Macs.
     With some changes to the Makefile it can be made to run on BSD systems with
     BSD make.  An adventurous person could also get it to run on Windows.

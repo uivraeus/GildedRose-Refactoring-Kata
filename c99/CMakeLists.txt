@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 2.8.4)
+cmake_minimum_required(VERSION 3.5.0)
 project(GildedRose_c99)
 
+include(CTest)
 enable_testing()
 
 include(ExternalProject)
@@ -27,5 +28,10 @@ add_executable( GildedRose_Unity
 target_include_directories(GildedRose_Unity PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/unity-src/src/)
 set_property(TARGET GildedRose_Unity PROPERTY C_STANDARD 99)
 add_dependencies(GildedRose_Unity unity)
+
+# Settings for enabling coverage reporting
+set(CMAKE_BUILD_TYPE "Debug")
+target_compile_options(GildedRose_Unity PRIVATE -coverage)
+target_link_options(GildedRose_Unity PRIVATE -coverage)
 
 add_test(NAME GildedRose_Unity COMMAND GildedRose_Unity)
