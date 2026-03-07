@@ -24,4 +24,14 @@ or combined with `watch`
 dotnet watch --project GildedRoseTests test --collect:"XPlat Code Coverage"
 ```
 
+> _**Alternative if encountering problem with `--project` option in combination with `watch`**_
+>
+> ```shell
+> cd GildedRoseTests
+> ```
+>
+> ```shell
+> dotnet watch test --collect:"XPlat Code Coverage"
+> ```
+
 > A file named `coverage.cobertura.xml` will be created for each run. It can be parsed by (e.g) VS Code's [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) extension.
